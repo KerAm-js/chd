@@ -17,7 +17,7 @@ export const HomePage = () => {
 
   useEffect(() => {
     mutation.mutate({});
-  }, [])
+  }, []);
 
   return (
     <View style={styles.container}>

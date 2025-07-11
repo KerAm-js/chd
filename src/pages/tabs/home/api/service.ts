@@ -9,7 +9,7 @@ export class AIService {
     return axios.post<GetActivityParams, IActivity[]>(
       this.BASE_URL,
       {
-        query: JSON.stringify(params),
+        query: params,
       },
       {
         headers: {
