@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { useThemeColors } from '../config';
-import { FC, PropsWithChildren } from 'react';
+import { FC } from 'react';
 
-type PropTypes = PropsWithChildren & { title: string };
+type PropTypes = { title: string };
 
-export const UICard: FC<PropTypes> = ({ children, title }) => {
+export const UIBadge: FC<PropTypes> = ({ title }) => {
   const { colors } = useThemeColors();
 
   return (
@@ -12,8 +12,7 @@ export const UICard: FC<PropTypes> = ({ children, title }) => {
       style={[
         styles.container,
         {
-          backgroundColor: colors.backgroundSecond,
-          borderColor: colors.lineGrey,
+          backgroundColor: colors.lineGrey,
         },
       ]}
     >
@@ -27,22 +26,19 @@ export const UICard: FC<PropTypes> = ({ children, title }) => {
       >
         {title}
       </Text>
-      {children}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
-    borderRadius: 8,
-    borderWidth: 1,
-    marginHorizontal: 16,
-    marginBottom: 16,
+    paddingVertical: 5,
+    paddingHorizontal: 8,
+    borderRadius: 4,
+    borderCurve: 'continuous',
   },
   title: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 12,
+    fontSize: 13,
+    fontWeight: '500',
   },
 });

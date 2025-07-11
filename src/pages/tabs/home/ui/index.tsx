@@ -80,7 +80,7 @@ const activities = [
 const getAnswer = async () => {
   try {
     const response = await aiSevice.getAnswer();
-    console.log(response)
+    console.log(response);
   } catch (error) {
     if (error && isAxiosError(error)) {
       console.log(error.request);

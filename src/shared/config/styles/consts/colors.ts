@@ -28,7 +28,7 @@ export const THEME_COLORS: {[key in Theme]: ColorSet} = {
     yellow: '#EB9800',
     yellowOpacity: 'rgba(235, 152, 0, 0.12)',
     textGrey: 'rgba(0, 0, 0, 0.4)',
-    lineGrey: 'rgba(0, 0, 0, 0.1)',
+    lineGrey: 'rgba(0, 0, 0, 0.07)',
   },
   dark: {
     primary: '#fff',
@@ -42,6 +42,6 @@ export const THEME_COLORS: {[key in Theme]: ColorSet} = {
     yellow: '#FFA500',
     yellowOpacity: 'rgba(255, 165, 0, 0.15)',
     textGrey: 'rgba(250, 250, 250, 0.4)',
-    lineGrey: 'rgba(250, 250, 250, 0.1)',
+    lineGrey: 'rgba(250, 250, 250, 0.07)',
   },
 };
