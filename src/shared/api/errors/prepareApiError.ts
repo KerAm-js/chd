@@ -1,5 +1,4 @@
 import { isAxiosError } from 'axios';
-import { queryClient } from '../queryClient';
 import { ApiError } from './types';
 import { API_ERRORS } from './apiErrors';
 

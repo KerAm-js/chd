@@ -1,24 +1,28 @@
+import { IActivity } from '@/entities/activity';
 import { UIBadge, UICard } from '@/shared/ui';
-import React from 'react';
+import React, { FC } from 'react';
 import {
   View,
-  Text,
-  ScrollView,
-  TouchableOpacity,
   StyleSheet,
 } from 'react-native';
 
 type PropTypes = {
+  activity: IActivity;
+};
 
-}
-
-export const ActivityCard = ({ title, time, budget, weather }) => {
+export const ActivityCard: FC<PropTypes> = ({ activity }) => {
   return (
-    <UICard title={title}>
+    <UICard title={activity.title}>
       <View style={styles.tagsContainer}>
-        <UIBadge title={time} />
-        <UIBadge title={budget} />
-        <UIBadge title={weather} />
+        {!!activity.freeTime && (
+          <UIBadge title={activity.freeTime?.toString() + ' мин'} />
+        )}
+        {!!activity.budget && (
+          <UIBadge title={activity.budget?.toString() + ' ₽'} />
+        )}
+        {!!activity.peopleCount && (
+          <UIBadge title={activity.peopleCount?.toString()} />
+        )}
       </View>
     </UICard>
   );
