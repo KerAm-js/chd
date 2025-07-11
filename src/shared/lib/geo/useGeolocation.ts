@@ -1,6 +1,6 @@
 import Geolocation from '@react-native-community/geolocation';
 import {useEffect, useState} from 'react';
-import {Point} from './types';
+import { Point } from './types';
 
 export const useGeolocation = () => {
   const [loading, setLoading] = useState(true);
@@ -19,6 +19,10 @@ export const useGeolocation = () => {
         setLoading(false);
       },
       error => {
+        setPoint({
+          lat: 43.318366,
+          lon: 45.692421,
+        });
         setError(error.message);
         setLoading(false);
       },
