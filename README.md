@@ -4,6 +4,16 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 > **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
 
+## Step 0: Start Node JS
+
+First of all, you will need to run **Node JS** server.
+
+To start the server , run the following command from the server folder of your project:
+
+```sh
+# Using npm
+npm i && node index.js
+
 ## Step 1: Start Metro
 
 First, you will need to run **Metro**, the JavaScript build tool for React Native.
