@@ -1,8 +1,10 @@
 const express = require('express');
 const axios = require('axios');
-require('dotenv').config();
+
 const { requestToken } = require('./requestToken');
 const { requestAnswer } = require('./requestAnswer');
+
+require('dotenv').config();
 
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
 
@@ -40,5 +42,5 @@ app.post('/ask-gigachat', async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Сервер запущен на порту ${port}`);
+  console.log(`Сервер запущен. Порт: ${port}`);
 });

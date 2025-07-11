@@ -1,12 +1,10 @@
 import { RootNavigation, RootNavigationList } from '@/shared/navigation';
 import { NavigationContainer } from '@react-navigation/native';
-// import { TabNavigator } from './tab-navigator';
-// import { LoginPage } from '@/pages/login';
+import { TabNavigator } from './tab-navigator';
 import { RegistrPage } from '@/pages/registr';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { FilterPage } from '@/pages/filter';
 import { LoginPage } from '@/pages/login';
-import { SignupPage } from '@/pages/signup';
 
 const Stack = createNativeStackNavigator<RootNavigationList>();
 
@@ -15,8 +13,8 @@ export const RootNavigator = () => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName={RootNavigation.TABS}>
         <Stack.Screen
-          component={RegistrPage}
-          name={RootNavigation.REGISTR}
+          component={TabNavigator}
+          name={RootNavigation.TABS}
           options={{ headerShown: false }}
         />
         <Stack.Screen
@@ -30,8 +28,8 @@ export const RootNavigator = () => {
           options={{ title: 'Фильтр' }}
         />
         <Stack.Screen
-          component={SignupPage}
-          name={RootNavigation.SINGUP}
+          component={RegistrPage}
+          name={RootNavigation.REGISTR}
           options={{ title: 'Регистрация' }}
         />
       </Stack.Navigator>
