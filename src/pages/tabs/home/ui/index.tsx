@@ -1,6 +1,5 @@
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { aiSevice } from '../api/service';
-import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import {isAxiosError} from 'axios';
 import { ActivityCard } from './ActivityCard';
@@ -78,9 +77,9 @@ const activities = [
     }
   ];
 
-const getToken = async () => {
+const getAnswer = async () => {
   try {
-    const response = await aiSevice.getAccessToken();
+    const response = await aiSevice.getAnswer();
     console.log(response)
   } catch (error) {
     if (error && isAxiosError(error)) {
@@ -95,7 +94,7 @@ const getToken = async () => {
 export const HomePage = () => {
 
   useEffect(() => {
-    getToken();
+    getAnswer();
   }, [])
 
   return (

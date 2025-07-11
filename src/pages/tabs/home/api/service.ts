@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 export class AIService {
   private AUTH_URL = 'https://ngw.devices.sberbank.ru:9443/api/v2/oauth';
-  private BASE_URL = 'https://gigachat.devices.sberbank.ru/api/v1/';
+  private BASE_URL = 'http://localhost:3000/ask-gigachat';
   private CLIENT_ID = '7ab8cb30-c85c-4f50-a29c-b5c972a93339';
   private CLIENT_SECRET = '6c33516c-978c-4e8a-ad0b-32b511d474d6';
   private AUTH_KEY =
@@ -26,25 +26,17 @@ export class AIService {
   };
 
   getAnswer = () => {
-    return axios.post(this.BASE_URL, {
-      headers: {
-        Authorization: `Bearer ${this.AUTH_KEY}`,
-        'Content-Type': 'application/x-www-form-urlencoded',
-        Accept: 'application/json',
+    return axios.post(
+      this.BASE_URL,
+      {
+        query: 'string',
       },
-      body: {
-        model: 'GigaChat-Max',
-        messages: [
-          {
-            role: 'user',
-            content:
-              'Я нахожусь в компании друзей. Нас 5 человек. Нам скучно. Постарайся нам помочь, это очень важно для нас. Предложи 10 вариантов активностей для нас, используя следующие факты о нашем контексте: 1) у нас 3 часа свободного времени 2) сейчас ясная погода 3) сейчас ночь 4) у нас хорошее настроение 6) у нас нет денег 7) мы любим спорт 8) мы находимся в городе Грозный. Дай ответ на мой запрос в формате JSON.',
-          },
-        ],
-        stream: false,
-        update_interval: 0,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
       },
-    });
+    );
   };
 }
 
