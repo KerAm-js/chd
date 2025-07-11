@@ -16,7 +16,13 @@ export const HomePage = () => {
   });
 
   useEffect(() => {
-    mutation.mutate({});
+    mutation.mutate({
+      timeOfDay: 'EVENING',
+      freeTime: '30-60',
+      mood: 'GOOD',
+      budget: '10000+',
+      peopleCount: '10-20',
+    });
   }, []);
 
   return (
@@ -46,9 +52,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f3f4f6',
-    paddingTop: 16,
   },
   scrollContainer: {
     paddingBottom: 16,
+    paddingTop: 20,
   },
 });

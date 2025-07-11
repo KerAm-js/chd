@@ -21,17 +21,13 @@ app.post('/ask-gigachat', async (req, res) => {
       return res.status(400).send('Параметры отсутствуют');
     }
 
-    console.log(1, params.query)
     const tokenResponse = await requestToken();
-    console.log(2, tokenResponse.data);
     const aiAnswer = await requestAnswer(
       params.query,
       tokenResponse.data.access_token,
     );
-    console.log(3, aiAnswer.data);
     res.send(JSON.parse(aiAnswer.data.choices[0].message.content));
   } catch (error) {
-    console.log(4, error.message);
     if (axios.isAxiosError(error)) {
       res
         .status(500)

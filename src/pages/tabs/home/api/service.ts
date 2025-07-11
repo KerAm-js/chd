@@ -5,8 +5,8 @@ import { IActivity } from '@/entities/activity';
 export class AIService {
   private BASE_URL = 'http://localhost:3000/ask-gigachat';
 
-  getActivities = (params: GetActivityParams) => {
-    return axios.post<GetActivityParams, IActivity[]>(
+  getActivities = async (params: GetActivityParams) => {
+    const response = await axios.post<GetActivityParams, {data: IActivity[]}>(
       this.BASE_URL,
       {
         query: params,
@@ -17,6 +17,7 @@ export class AIService {
         },
       },
     );
+    return response.data;
   };
 }
 
