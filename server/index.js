@@ -24,7 +24,7 @@ app.post('/ask-gigachat', async (req, res) => {
 
     const tokenResponse = await requestToken();
     const aiAnswer = await requestAnswer(
-      params,
+      params.query,
       tokenResponse.data.access_token,
     );
     res.send(aiAnswer.data.choices[0].message.content);
