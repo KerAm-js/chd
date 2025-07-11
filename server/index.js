@@ -17,18 +17,21 @@ app.use(express.text());
 app.post('/ask-gigachat', async (req, res) => {
   try {
     const params = req.body;
-
     if (!params) {
       return res.status(400).send('Параметры отсутствуют');
     }
 
+    console.log(1, params.query)
     const tokenResponse = await requestToken();
+    console.log(2, tokenResponse.data);
     const aiAnswer = await requestAnswer(
       params.query,
       tokenResponse.data.access_token,
     );
-    res.send(aiAnswer.data.choices[0].message.content);
+    console.log(3, aiAnswer.data);
+    res.send(JSON.parse(aiAnswer.data.choices[0].message.content));
   } catch (error) {
+    console.log(4, error.message);
     if (axios.isAxiosError(error)) {
       res
         .status(500)

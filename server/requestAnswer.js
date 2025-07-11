@@ -23,12 +23,13 @@ const basePrompt =
   'минимальное количество людей, необходимое для этого занятия, оно больше 1 (peopleCount); ' +
   'минимальный необходимый бюджет в рублях, если он больше 0 (budget); ' +
   'минимально необходимое свободное время, в минутах (freeTime). ' +
-  'Ответ должен быть в формате JSON в виде массива из 10 твоих предложений в виде объектов: ' +
+  'Ответ должен быть в формате массива из 10 твоих предложений в виде объектов: ' +
   '{title: string, ' +
   'description: string, ' +
   'peopleCount?: number, ' +
   'budget?: number' +
   'freeTime?: number}. ' +
+  'В ответе не должно быть абсолюнто ничего, кроме этого массива. Никаких символов, никаких пояснений, ничего. ' +
   'Твой ответ очень важен для пользователей.';
 
 const requestAnswer = async (query, token) => {
@@ -46,7 +47,7 @@ const requestAnswer = async (query, token) => {
       },
       {
         role: 'user',
-        content: query,
+        content: JSON.stringify(query),
       },
     ],
     stream: false,
